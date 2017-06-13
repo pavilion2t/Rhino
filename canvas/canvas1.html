@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+ <body>
+  This is a red square:
+  <canvas id="square" width=100 height=100></canvas>  
+  This is a blue circle:
+  <canvas id="circle" width=100 height=100></canvas>
+
+  <script type="text/javascript"> 
+    var canvas = document.getElementById("square");
+    var context = canvas.getContext("2d");
+    context.fillStyle = "#f00";
+    context.fillRect(0,0,50,50);
+
+    var canvas = document.getElementById("circle");
+    var context = canvas.getContext("2d");
+    context.beginPath();
+    context.arc(5,5,5,0,2*Math.PI,true);
+    context.fillStyle = "#00f";
+    context.fill();    
+  </script>
+ </body>
+</html>
