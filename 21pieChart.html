@@ -1,31 +1,45 @@
-//使用JS和SVG绘制一个饼状图
+<!DOCTYPE>
+<html>
+  <head>
+   
+  </head>
+
+  <body onload="document.body.appendChild(
+  	           pieChart([12,23,34,45],640,400,200,150,
+  	           	['red','blue','yellow','green'],
+  	           	['North','South','East','West'],400,100));
+     ">
+   
+    <script type="text/javascript">
+    	
+    	//使用JS和SVG绘制一个饼状图
 
 function pieChart(data,width,height,cx,cy,r,colors,labels,lx,ly){
-  var svg = "http://www.w3.org/2000/svg";
+  var svgns = "http://www.w3.org/2000/svg";
 
   var chart = document.createElementNS(svgns,"svg:svg");
-  chart.setAttribute("width":width);
-  chart.setAttribute("heigth":height);
-  chart.setAttribute("viewBox":"0 0" + width + " " + height);
+  chart.setAttribute("width",width);
+  chart.setAttribute("heigth",height);
+  chart.setAttribute("viewBox","0 0" + width + " " + height);
 
   var total = 0;
   for(var i = 0; i<data.length; i++) total += data[i];
 
   var angles = [];
-  for(var i = 0;i<data.length;i++) angles[i]=data[i]/total*Math*PI*2;
+  for(var i = 0;i<data.length;i++) angles[i]=data[i]/total*Math*3.14*2;
 
   startangle = 0;
   for(var i = 0;i<data.length;i++){
-  	var endangle = startangle +angle[i];
+  	var endangle = startangle + angles[i];
   	var x1 = cx +r*Math.sin(startangle);
   	var y1 = cx +r*Math.cos(startangle);
   	var x2 = cx +r*Math.sin(endangle);
   	var y2 = cx +r*Math.cos(endangle);
 
   	var big =0;
-  	if(endangle -startangle>Math.PI) big =1;
+  	if(endangle -startangle>Math*3.14) big =1;
 
-  	var path = document.createElenmentNS(svgns,"path");
+  	var path = document.createElementNS(svgns,"path");
   	var d = "M" + cx + "," + cy +
   	        "L" + x1 + "," + y1 +
   	        "A" + r  + "," + r  +
@@ -48,9 +62,9 @@ function pieChart(data,width,height,cx,cy,r,colors,labels,lx,ly){
   	icon.setAttribute("fill",colors[i]);
   	icon.setAttribute("stroke","black");
   	icon.setAttribute("stroke-width","2");
-  	chart.appendChile(icon);
+  	chart.appendChild(icon);
 
-  	var label = document.createElenmentNS(svgns,"text");
+  	var label = document.createElementNS(svgns,"text");
   	label.setAttribute("x",lx+30);
   	label.setAttribute("y",ly+30*i+18);
   	label.setAttribute("font-family","sans-serif");
@@ -62,3 +76,7 @@ function pieChart(data,width,height,cx,cy,r,colors,labels,lx,ly){
      return chart;
 
 }
+    </script>
+
+  </body>
+  </html>
