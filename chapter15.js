@@ -13,3 +13,10 @@ function getElements(/*ids...*/){
   }
   return elements;
 }
+
+//15.2.3
+var fistpara = document.getElementsByTagName("p")[0];
+
+var snapshot = Array.prototype.slice.call(nodelist,0);
+
+
