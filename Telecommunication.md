@@ -15,3 +15,8 @@
  4 事件的触发顺序
  
  ### 跨域通信的几种方式
+   > JSONP
+   > Hash
+   > postMessage
+   > WebSocket
+   > CORS
