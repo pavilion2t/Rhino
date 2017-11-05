@@ -19,5 +19,27 @@ function  distance(x1,y1,x2,y2){
   return Math.sqrt(dx*dx + dy*dy);
 }
 
+{/*
+计算阶乘的递归函数
+factorial(5)  
+120
+factorial(0)
+1
+*/}
+function factorial(x){
+  if(x<=1) return 1;
+  return x * factorial(x-1);
+}
+
+{/* 函数表达式，注意把它赋值给了一个变量 */}
+var square = function(x){
+  return x * x;
+}
 
 
+
+{/*  */}
+
+{/*  */}
+
+{/*  */}
