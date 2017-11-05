@@ -18,3 +18,10 @@ getPropertyNames(p,a);
 🔥🔥🔥可变长的实参列表： 实参对象🌈🌈🌈
 当调用时，实参比形参个数多，剩下的实参可以通过argument的数字下标访问
 */}
+function max(){
+  var max = Number.NEGATIVE_INFINITY;
+  for(var i = 0; i < arguments.length; i++){
+    if(arguments[i] > max) max = arguments[i];
+    return max;
+}
+  var lergest = max(1,10,100,2,3,1000,4,5,10000);
