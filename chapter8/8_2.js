@@ -13,7 +13,18 @@ var p = factorial(5)/factorial(13);
 方法是 保存在对象属性里的函数。
 方法调用的this值是该对象。
 */}
-
+var o = {
+  m : function(){
+        var self = this;
+        console.log(this === o);
+        f();
+        function f(){
+          console.log(this === o);
+          console.log(self === o);
+        }
+      }
+  };
+o.m();
 
 
 {/*   
