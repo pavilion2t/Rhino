@@ -25,3 +25,28 @@ function max(){
     return max;
 }
   var lergest = max(1,10,100,2,3,1000,4,5,10000);
+
+  
+{/*   
+🔥🔥🔥将对象属性用做实参🌈🌈🌈
+
+*/}
+  
+  
+  {/*   
+🔥🔥🔥类型🌈🌈🌈
+
+*/}
+  function sum(a){
+    if(isArrayLike(a)){
+      var total = 0;
+      for(var i = 0; i < a.length; i++){
+        var element = a[i];
+        if(element == null) continue;
+        if(isFinite(element)) total += element;
+        else throw new Error("sum():elements must be finite numbers");
+      }
+    return total;
+    }
+   else throw new Error ("sum(): argument must be array-like");
+  }
