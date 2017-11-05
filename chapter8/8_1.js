@@ -6,3 +6,18 @@ function printprops(o){
     console.log(p+ ": " + o[p] + "\n")
     }
   }
+
+{/*
+计算两个笛卡尔坐标之间的距离
+笛卡尔坐标系 (Cartesian coordinates) 就是直角坐标系和斜角坐标系的统称。
+e.g  distance(3,3,9,8)
+7.810249675906654
+*/}
+function  distance(x1,y1,x2,y2){
+  var dx = x2-x1;
+  var dy = y2-y1;
+  return Math.sqrt(dx*dx + dy*dy);
+}
+
+
+
