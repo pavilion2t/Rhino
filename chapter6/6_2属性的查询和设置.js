@@ -29,3 +29,14 @@ function getValue(portfolio){
  }
  return total;
 }
+
+
+//继承
+var o = {};
+o.x = 1;
+var p = inherit(o);
+p.y = 2;
+var q =inherit(p);
+q.z = 3;
+var s = q.toString();
+q.x + q.y   //=>3
