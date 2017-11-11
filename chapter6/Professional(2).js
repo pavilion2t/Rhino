@@ -30,4 +30,22 @@ alert(person2.constructor == Person);  //true
 //问题是创建了完成同样任务的多个Function实例
 alert(person1.sayName == person2.sayName); //false
 
+//可以把sayName()函数定义转移到构造函数外部解决，但是就没有封装性了
+function Person(name,age,job){
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = sayName;
+}
+function sayName(){ alert(this.name); }
+
+
+
+
+
+
+
+//原型模式
+
+
 
