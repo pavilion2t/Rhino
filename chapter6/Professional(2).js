@@ -71,10 +71,30 @@ alert(Person.prototype.isPrototypeOf(person2));
 alert(Object.getPrototypeOf(person1) == Person.prototype);
 alert(Object.getPrototypeOf(person1).name);
 
+//可以通过对象实例访问保存在原型中的值，但不能通过对象实例重写原型中的值
+//使用hasOwnProperty()方法可以检测一个属性存在实例中还是原型中
+  function Person(){
+  }
 
+  Person.prototype.name = "Nicholas";
+  Person.prototype.age = 29;
+  Person.prototype.job = "freelance";
+  Person.prototype.sayName = function(){ alert(this.name); };  
 
-  
-  
+  var person1 = new Person();
+  var person2 = new Person();
+  alert(person1.hasOwnProperty("name"));  //false
+
+  person1.name = "zhu";
+  alert(person1.name);  //"zhu"  来自实例
+  alert(person1.hasOwnProperty("name")); //true
+
+  alert(person2.name);  //"Nicholas"  来自原型
+  alert(person2.hasOwnProperty("name")); //false
+
+  delete person1.name;
+  alert(person1.name);  //"Nicholas"  来自原型
+  alert(person1.hasOwnProperty("name")); //false
   
 
 
