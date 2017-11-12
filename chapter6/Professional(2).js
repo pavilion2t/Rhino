@@ -98,3 +98,12 @@ alert(Object.getPrototypeOf(person1).name);
   
 
 
+//更简单的原型语法
+function Person(){ };
+
+Person.prtototype = {
+  name: "zhu",
+  age: 20,
+  job: "journalism",
+  sayName :function(){ alert(this.name); }
+}
