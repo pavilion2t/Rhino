@@ -45,7 +45,36 @@ function sayName(){ alert(this.name); }
 
 
 
-//原型模式
+//原型模式：创建的每个构造函数都有一个原型属性，这个属性是一个指针，指向一个对象。这个对象包含特定类型的所有实例共享的属性和方法。
+//使用原型对象的好处是，不必在构造函数中定义对象实例信息，而是可以将这些信息直接添加到原型对象中。
+  function Person(){
+  }
 
+  Person.prototype.name = "Nicholas";
+  Person.prototype.age = 29;
+  Person.prototype.job = "freelance";
+  Person.prototype.sayName = function(){ alert(this.name); };  
+
+  var person1 = new Person();
+  person1.sayName();
+
+  var person2 = new Person();
+  person2.sayName();
+
+  alert(person1.sayName == person2.sayName);
+
+//可以通过isPrototypeOf()来确定a是否为b的原型
+alert(Person.prototype.isPrototypeOf(person1));
+alert(Person.prototype.isPrototypeOf(person2));
+
+//ES5增加了新方法，Object.getPrototypeOf()，利用它可以方便地取得一个对象的原型，这在利用原型实现继承的情况下非常重要
+alert(Object.getPrototypeOf(person1) == Person.prototype);
+alert(Object.getPrototypeOf(person1).name);
+
+
+
+  
+  
+  
 
 
