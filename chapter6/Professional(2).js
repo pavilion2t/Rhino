@@ -108,6 +108,25 @@ Person.prtototype = {
   sayName :function(){ alert(this.name); }
 }
 
+//原型模式的问题
+function Person(){ };
+
+Person.prototype = {
+  constructor: Person,
+  name: "zhu",
+  friends : ["Shelby", "Court"],
+  sayName: function(){ alert(this.name); }
+
+}
+  var person1 = new Person();
+  var person2 = new Person();
+  
+person1.friends.push("Van");
+alert(person1.friends);
+alert(person2.friends);
+alert(person1.friends === person2.friends); //true
+alert(person1.sayName === person2.sayName); //true
+
 //组合使用构造函数模式和原型模式
 function Person(name,age,job){
   this.name = name;
@@ -123,7 +142,7 @@ var person1 = new Person("Nicholas",29,"Software Engineer");
 var person2 = new Person("Greg",27,"Doctor");
 
 person1.friends.push("Van");
-alert(person1.friends);
-alert(person2.friends);
+alert(person1.friends);//Shelby,Court,Van
+alert(person2.friends);//Shelby,Court
 alert(person1.friends === person2.friends); //false
 alert(person1.sayName === person2.sayName); //true
